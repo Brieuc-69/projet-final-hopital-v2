@@ -1,0 +1,199 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cabinet Médical{% endblock %}
+
+{% block body %}
+
+
+<div class="page-hero bg-image overlay-dark" style="background-image: url({{asset('asset/img/istockphoto-1401846005-612x612.jpg')}});">
+    <div class="hero-section">
+      <div class="container text-center wow zoomIn">
+        <span class="subhead">Besoin de consulter</span>
+        <h1 class="display-4">Cabinet Médical</h1>
+        <a href="" class="btn btn-primary">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="bg-light">
+    <div class="page-section py-3 mt-md-n5 custom-index">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-secondary text-white">
+                <span class="mai-chatbubbles-outline"></span>
+              </div>
+              <p><span>Discuter</span> avec un médecin</p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-primary text-white">
+                <span class="mai-shield-checkmark"></span>
+              </div>
+              <p><span>Préserver </span>une protection de vie</p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-accent text-white">
+                <span class="mai-basket"></span>
+              </div>
+              <p><span>Acheter </span>vos Médicaments</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .page-section -->
+
+    <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1>Bienvenue<br> dans notre Cabinet</h1>
+            <p class="text-grey mb-4">Situé au cœur de la ville, votre cabinet médical est un lieu accueillant et moderne où la santé et le bien-être sont au centre de toutes les attentions. Dès l'entrée, vous êtes accueilli par un personnel chaleureux et professionnel, prêt à répondre à vos besoins. La salle d'attente, baignée de lumière naturelle, offre un environnement paisible et confortable pour les patients en attente de consultation.
+
+              Les consultations se déroulent dans des salles spacieuses et équipées des dernières technologies médicales, garantissant des examens et des diagnostics précis. Votre équipe médicale, composée de médecins généralistes et de spécialistes qualifiés, est dévouée à offrir des soins de qualité et personnalisés à chaque patient.
+              
+              Dans votre cabinet, l'accent est mis sur la prévention et l'éducation en matière de santé. Des séances d'information et de sensibilisation sont régulièrement organisées pour promouvoir un mode de vie sain et prévenir les maladies.
+              
+             </p>
+            <a href="about.html" class="btn btn-primary">En savoir plus </a>
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <div class="img-place custom-img-1">
+              <img src={{asset('asset/img/bg-doctor.png')}} alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+  </div> <!-- .bg-light -->
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center mb-5 wow fadeInUp">Les Médecins</h1>
+
+      <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src={{asset('asset/img/doctors/doctor1.webp')}} alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Levallois Marie</p>
+              <span class="text-sm text-grey">Cardiologue</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src={{asset('asset/img/doctors/doctor_2.jpg')}} alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Gauthez Vincent.</p>
+              <span class="text-sm text-grey">Dentise</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src={{asset('asset/img/doctors/Gérald_KIERZEK_(Crédit_Ibo).jpg')}} alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Gérald Kierzek</p>
+              <span class="text-sm text-grey">Medecin Generaliste</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src={{asset('asset/img/doctors/la.blond.png')}} alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+              <span class="text-sm text-grey">Neurologue</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src={{asset('asset/img/doctors/medical-hospital-neurologist-neurosurgeon-talk-260nw-2140344447.webp')}} alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Sophie Barriquand</p>
+              <span class="text-sm text-grey">Kinésithérapheute</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
+
+      <form class="main-form">
+        <div class="row mt-5 ">
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Nom et Prénom">
+          </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+            <input type="text" class="form-control" placeholder="Adresse Mail">
+          </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+            <input type="date" class="form-control">
+          </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+            <select name="departement" id="departement" class="custom-select">
+              <option value="medecin generaliste">Médecin Generaliste</option>
+              <option value="cardiologue">Cardiologue</option>
+              <option value="dentiste">Dentiste</option>
+              <option value="neurologue">Neurologue</option>
+              <option value="kinesitherapie">Kinésithéraphie</option>
+            </select>
+          </div>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <input type="text" class="form-control" placeholder="Numéro de telephone">
+          </div>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Tapez votre message"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Envoyer</button>
+      </form>
+    </div>
+  </div> 
+
+{% endblock %}

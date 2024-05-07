@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AboutUsController!{% endblock %}
+
+{% block body %}
+
+<div class="page-banner overlay-dark bg-image" style="background-image: url({{asset('asset/img/istockphoto-1401846005-612x612.jpg')}});">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+        
+        </nav>
+        <h1 class="font-weight-normal">A Propos de nous !</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div> <!-- .page-banner -->
+
+  <div class="page-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 py-3 wow zoomIn">
+          <div class="card-service">
+            <div class="circle-shape bg-secondary text-white">
+              <span class="mai-chatbubbles-outline"></span>
+            </div>
+            <p><span>Discuter</span> avec les médecins</p>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 wow zoomIn">
+          <div class="card-service">
+            <div class="circle-shape bg-primary text-white">
+              <span class="mai-shield-checkmark"></span>
+            </div>
+            <p><span>Préserver</span> une protection de vie</p>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 wow zoomIn">
+          <div class="card-service">
+            <div class="circle-shape bg-accent text-white">
+              <span class="mai-basket"></span>
+            </div>
+            <p><span>Acheter </span> vos médicaments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 wow fadeInUp">
+          <h1 class="text-center mb-3">Bienvenue dans notre Cabinet Médicale</h1>
+          <div class="text-lg">
+            <p>Situé au cœur de la ville, votre cabinet médical est un lieu accueillant et moderne où la santé et le bien-être sont au centre de toutes les attentions. Dès l'entrée, vous êtes accueilli par un personnel chaleureux et professionnel, prêt à répondre à vos besoins. La salle d'attente, baignée de lumière naturelle, offre un environnement paisible et confortable pour les patients en attente de consultation.
+
+              Les consultations se déroulent dans des salles spacieuses et équipées des dernières technologies médicales, garantissant des examens et des diagnostics précis. Votre équipe médicale, composée de médecins généralistes et de spécialistes qualifiés, est dévouée à offrir des soins de qualité et personnalisés à chaque patient.
+              
+              Dans votre cabinet, l'accent est mis sur la prévention et l'éducation en matière de santé. Des séances d'information et de sensibilisation sont régulièrement organisées pour promouvoir un mode de vie sain et prévenir les maladies.
+              
+              De plus, votre cabinet médical propose une gamme de services variés, allant des consultations de routine aux examens spécialisés, en passant par les vaccinations et les suivis médicaux. Vous veillez également à maintenir un environnement propre et sécurisé, conforme aux normes sanitaires les plus strictes.
+              
+              En somme, votre cabinet médical est bien plus qu'un simple lieu de consultation ; c'est un véritable lieu de confiance où les patients peuvent trouver des soins de qualité, une écoute attentive et des conseils avisés pour prendre en charge leur santé de manière globale et durable.</p>
+          </div>
+        </div>
+        <div class="col-lg-10 mt-5">
+          <h1 class="text-center mb-5 wow fadeInUp">Les Médecins en fin de Carrière...</h1>
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src={{asset('asset/img/doctors/wv1nl5eac5wvgwnkxkoa.webp')}} alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr Levallois Marie</p>
+                  <span class="text-sm text-grey">Cardiologue</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src={{asset('asset/img/doctors/doctor_2.jpg')}} alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Gauthez Vincent</p>
+                  <span class="text-sm text-grey">Dentiste</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src={{asset('asset/img/doctors/Gérald_KIERZEK_(Crédit_Ibo).jpg')}} alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+                  <span class="text-sm text-grey">Médecin Generaliste</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
