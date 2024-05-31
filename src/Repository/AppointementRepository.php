@@ -1,49 +1,39 @@
 <?php
-
-namespace App\Repository;
+namespace App\Controller;
 
 use App\Entity\Appointement;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Appointment;
+use App\Form\AppointementType;
+use App\Form\AppointmentType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @extends ServiceEntityRepository<Appointement>
- *
- * @method Appointement|null find($id, $lockMode = null, $lockVersion = null)
- * @method Appointement|null findOneBy(array $criteria, array $orderBy = null)
- * @method Appointement[]    findAll()
- * @method Appointement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
-class AppointementRepository extends ServiceEntityRepository
+class AppointmentController extends AbstractController
 {
-    public function __construct(ManagerRegistry $registry)
+    /**
+     * @Route("/appointment", name="appointment")
+     */
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        parent::__construct($registry, Appointement::class);
+        $appointment = new Appointement();
+        $form = $this->createForm(AppointementType::class, $appointment);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($appointment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Votre rendez-vous a été pris avec succès.');
+
+            return $this->redirectToRoute('appointment');
+        }
+
+        return $this->render('appointment/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
-
-//     //    /**
-//     //     * @return Appointement[] Returns an array of Appointement objects
-//     //     */
-//     //    public function findByExampleField($value): array
-//     //    {
-//     //        return $this->createQueryBuilder('a')
-//     //            ->andWhere('a.exampleField = :val')
-//     //            ->setParameter('val', $value)
-//     //            ->orderBy('a.id', 'ASC')
-//     //            ->setMaxResults(10)
-//     //            ->getQuery()
-//     //            ->getResult()
-//     //        ;
-//     //    }
-
-//     //    public function findOneBySomeField($value): ?Appointement
-//     //    {
-//     //        return $this->createQueryBuilder('a')
-//     //            ->andWhere('a.exampleField = :val')
-//     //            ->setParameter('val', $value)
-//     //            ->getQuery()
-//     //            ->getOneOrNullResult()
-//     //        ;
-//     //    }
-// }
 }

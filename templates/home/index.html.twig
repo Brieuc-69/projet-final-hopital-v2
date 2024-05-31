@@ -10,7 +10,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Besoin de consulter</span>
         <h1 class="display-4">Cabinet Médical</h1>
-        <a href="" class="btn btn-primary">Prendre rendez-vous</a>
+        <a href="{{path('app_contact')}}" class="btn btn-primary">Prendre rendez-vous</a>
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@
               Dans votre cabinet, l'accent est mis sur la prévention et l'éducation en matière de santé. Des séances d'information et de sensibilisation sont régulièrement organisées pour promouvoir un mode de vie sain et prévenir les maladies.
               
              </p>
-            <a href="about.html" class="btn btn-primary">En savoir plus </a>
+            <a href="{{path('app_about_us')}}" class="btn btn-primary">En savoir plus </a>
           </div>
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
             <div class="img-place custom-img-1">
@@ -157,43 +157,43 @@
     </div>
   </div>
 
- 
+ {# templates/appointment/new.html.twig #}
+{% extends 'base.html.twig' %}
 
-  <div class="page-section">
+{% block body %}
+<div class="page-section">
     <div class="container">
-      <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
+        <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
 
-      <form class="main-form">
-        <div class="row mt-5 ">
-          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" class="form-control" placeholder="Nom et Prénom">
-          </div>
-          <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-            <input type="text" class="form-control" placeholder="Adresse Mail">
-          </div>
-          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-            <input type="date" class="form-control">
-          </div>
-          <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-            <select name="departement" id="departement" class="custom-select">
-              <option value="medecin generaliste">Médecin Generaliste</option>
-              <option value="cardiologue">Cardiologue</option>
-              <option value="dentiste">Dentiste</option>
-              <option value="neurologue">Neurologue</option>
-              <option value="kinesitherapie">Kinésithéraphie</option>
-            </select>
-          </div>
-          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-            <input type="text" class="form-control" placeholder="Numéro de telephone">
-          </div>
-          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Tapez votre message"></textarea>
-          </div>
+        {{ form_start(form) }}
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                {{ form_row(form.appointmentDate) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                {{ form_row(form.department) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.phoneNumber) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.message) }}
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Envoyer</button>
-      </form>
+        {{ form_end(form) }}
     </div>
-  </div> 
+</div>
+{% endblock %}
+
+
+  
 
 {% endblock %}
