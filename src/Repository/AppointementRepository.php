@@ -1,19 +1,18 @@
 <?php
-
-namespace App\Repository;
+namespace App\Controller;  
 
 use App\Entity\Appointement;
 use App\Form\AppointementType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Compnent\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;  
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AppointementController extends AbstractController
 {
     /**
-     * @Route("/appointment", name="appointment")
+     * @Route("/appointement", name="appointement")
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
