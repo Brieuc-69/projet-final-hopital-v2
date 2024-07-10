@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Appointement;
+use App\Entity\Experience;
+use App\Entity\File;
 use App\Entity\Medecin;
 use App\Entity\Patient;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -47,5 +49,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Medecin', 'fa-solid fa-user-doctor', Medecin::class);
         yield MenuItem::linkToCrud('Appointment', 'fa-solid fa-calendar-check', Appointement::class);
         yield MenuItem::linkToCrud('Patient', 'fa-solid fa-person', Patient::class);
+        yield MenuItem::linkToCrud('Expérience', 'fa-solid fa-person', Experience::class);
+        yield MenuItem::linkToCrud('File', 'fa-solid fa-file', File::class);
     }
 }

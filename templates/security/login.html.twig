@@ -3,29 +3,74 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
+        Sign in to your account
+      </h2>
+      <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
+        Or
+        <a href="{{path('app_register')}}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+          create a new account
+        </a>
+      </p>
+    </div>
+  
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+        <form id="login-form" role="form" method="post" accept-char="UTF-8" autocomplete="off" data-parsley-validate>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+          {% if error %}
+              <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+          {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+          {% if app.user %}
+              <div class="mb-3">
+                  You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+              </div>
+          {% endif %}
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+              <input type="hidden" name="_token" value="">
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+              <div class="input-field">
+                  <input type="email" name="email" id="inputEmail" value=""
+                         required
+                         autofocus
+                         data-parsley-trigger="change"
+                         data-parsley-error-message="A valid email address is required.">
+                  <label for="inputEmail">Email</label>
+                  <span class="help-block">Type your email address.</span>
+              </div>
+              <div class="input-field">
+                  <input type="password" name="password" id="inputPassword"
+                         required
+                         data-parsley-trigger="change"
+                         data-parsley-error-message="The password must be at least 6 characters.">
+                  <label for="inputPassword">Password</label>
+                  <i class="fa fa-eye show-password"></i>
+                  <span class="help-block">Type your password.</span>
+
+
+              </div>
+
+              <input type="hidden" name="_csrf_token"
+                      value="{{ csrf_token('authenticate') }}"
+              >
+
+              <div class="checkbox">
+                  <input type="checkbox" id="keep-logged" name="remember" value="1" />
+                  <label for="keep-logged">Keep me logged in</label>
+              </div>
+              <button type="submit" class="btn btn-lg gradient secondary btn-block waves-effect waves-light mt-20 mb-20">Login</button>
+
+              <div class="links">
+                  <a href="#!">Forgot your password?</a>
+              </div>
+          </form>
+      </div>
+  </div>
+      </div>
+    </div>
+  </div>
+  
 {% endblock %}

@@ -1,0 +1,33 @@
+ {# templates/appointment/new.html.twig #}
+
+ <div class="page-section">
+    <div class="container">
+        <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
+
+        {{ form_start(form) }}
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                {{ form_row(form.appointmentDate) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                {{ form_row(form.department) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.phoneNumber) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.message) }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

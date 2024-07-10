@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AppointementController extends AbstractController
+class AppointementRepository extends AbstractController
 {
     /**
      * @Route("/appointement", name="appointement")

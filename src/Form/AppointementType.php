@@ -7,6 +7,7 @@ use App\Entity\Medecin;
 use App\Entity\Patient;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,19 +16,9 @@ class AppointementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('uptdateAt', null, [
-                'widget' => 'single_text',
-            ])
             ->add('content')
             ->add('dateAppointment', null, [
                 'widget' => 'single_text',
-            ])
-            ->add('medecin', EntityType::class, [
-                'class' => Medecin::class,
-                'choice_label' => 'id',
             ])
         ;
     }

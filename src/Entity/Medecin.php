@@ -22,8 +22,6 @@ class Medecin
     #[ORM\Column(length: 255)]
     private ?string $lastName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $experience = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $disponible = null;
@@ -38,12 +36,6 @@ class Medecin
     #[ORM\Column(length: 255)]
     private ?string $tel = null;
 
-    /**
-     * @var Collection<int, Experience>
-     */
-    #[ORM\ManyToMany(targetEntity: Experience::class, inversedBy: 'medecins')]
-    private Collection $noteEtoile;
-
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?File $url = null;
 
@@ -53,9 +45,11 @@ class Medecin
     #[ORM\OneToMany(targetEntity: Appointement::class, mappedBy: 'medecin')]
     private Collection $appointements;
 
+    #[ORM\ManyToOne(inversedBy: 'medecins')]
+    private ?Experience $experience = null;
+
     public function __construct()
     {
-        $this->noteEtoile = new ArrayCollection();
         $this->appointements = new ArrayCollection();
     }
 
@@ -88,17 +82,6 @@ class Medecin
         return $this;
     }
 
-    public function getExperience(): ?string
-    {
-        return $this->experience;
-    }
-
-    public function setExperience(string $experience): static
-    {
-        $this->experience = $experience;
-
-        return $this;
-    }
 
     public function getDisponible(): ?\DateTimeInterface
     {
@@ -149,29 +132,6 @@ class Medecin
         return $this;
     }
 
-    /**
-     * @return Collection<int, Experience>
-     */
-    public function getNoteEtoile(): Collection
-    {
-        return $this->noteEtoile;
-    }
-
-    public function addNoteEtoile(Experience $noteEtoile): static
-    {
-        if (!$this->noteEtoile->contains($noteEtoile)) {
-            $this->noteEtoile->add($noteEtoile);
-        }
-
-        return $this;
-    }
-
-    public function removeNoteEtoile(Experience $noteEtoile): static
-    {
-        $this->noteEtoile->removeElement($noteEtoile);
-
-        return $this;
-    }
 
     public function getUrl(): ?File
     {
@@ -211,6 +171,18 @@ class Medecin
                 $appointement->setMedecin(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getExperience(): ?Experience
+    {
+        return $this->experience;
+    }
+
+    public function setExperience(?Experience $experience): static
+    {
+        $this->experience = $experience;
 
         return $this;
     }

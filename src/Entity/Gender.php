@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GenderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GenderRepository::class)]
@@ -16,9 +18,18 @@ class Gender
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'gender')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Patient $patient = null;
+    /**
+     * @var Collection<int, Patient>
+     */
+    #[ORM\OneToMany(targetEntity: Patient::class, mappedBy: 'gender')]
+    private Collection $patients;
+
+    public function __construct()
+    {
+        $this->patients = new ArrayCollection();
+    }
+
+ 
 
     public function getId(): ?int
     {
@@ -37,15 +48,34 @@ class Gender
         return $this;
     }
 
-    public function getPatient(): ?Patient
+    /**
+     * @return Collection<int, Patient>
+     */
+    public function getPatients(): Collection
     {
-        return $this->patient;
+        return $this->patients;
     }
 
-    public function setPatient(?Patient $patient): static
+    public function addPatient(Patient $patient): static
     {
-        $this->patient = $patient;
+        if (!$this->patients->contains($patient)) {
+            $this->patients->add($patient);
+            $patient->setGender($this);
+        }
 
         return $this;
     }
+
+    public function removePatient(Patient $patient): static
+    {
+        if ($this->patients->removeElement($patient)) {
+            // set the owning side to null (unless already changed)
+            if ($patient->getGender() === $this) {
+                $patient->setGender(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

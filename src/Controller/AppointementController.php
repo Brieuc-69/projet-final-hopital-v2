@@ -11,6 +11,7 @@ class AppointementController extends AbstractController
     #[Route('/appointement', name: 'app_appointement')]
     public function index(): Response
     {
+        dd('test');
         return $this->render('appointement/index.html.twig', [
             'controller_name' => 'AppointementController',
         ]);

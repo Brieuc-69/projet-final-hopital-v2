@@ -77,22 +77,24 @@
       <h1 class="text-center mb-5 wow fadeInUp">Les Médecins</h1>
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
-        <div class="item">
+          {% for medecin in medecins %}
+          <div class="item">
           <div class="card-doctor">
             <div class="header">
-              <img src={{asset('asset/img/doctors/doctor1.webp')}} alt="">
+              <img src={{asset('uploads/medecins/' ~ medecin.url)}} alt="">
               <div class="meta">
                 <a href="#"><span class="mai-call"></span></a>
                 <a href="#"><span class="mai-logo-whatsapp"></span></a>
               </div>
             </div>
             <div class="body">
-              <p class="text-xl mb-0">Dr. Levallois Marie</p>
-              <span class="text-sm text-grey">Cardiologue</span>
+              <p class="text-xl mb-0">{{medecin.firstName}} {{medecin.lastName}} </p>
+              <span class="text-sm text-grey">{{medecin.experience}}</span>
             </div>
           </div>
         </div>
-        <div class="item">
+        {% endfor %}
+        {# <div class="item">
           <div class="card-doctor">
             <div class="header">
               <img src={{asset('asset/img/doctors/doctor_2.jpg')}} alt="">
@@ -152,46 +154,10 @@
             </div>
           </div>
           
-        </div>
+        </div> endcomment #}
       </div>
     </div>
   </div>
-
- {# templates/appointment/new.html.twig #}
-{% extends 'base.html.twig' %}
-
-{% block body %}
-<div class="page-section">
-    <div class="container">
-        <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
-
-        {{ form_start(form) }}
-        <div class="row mt-5">
-            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                {{ form_row(form.name) }}
-            </div>
-            <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                {{ form_row(form.email) }}
-            </div>
-            <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                {{ form_row(form.appointmentDate) }}
-            </div>
-            <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                {{ form_row(form.department) }}
-            </div>
-            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                {{ form_row(form.phoneNumber) }}
-            </div>
-            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                {{ form_row(form.message) }}
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Envoyer</button>
-        {{ form_end(form) }}
-    </div>
-</div>
-{% endblock %}
 
 
   

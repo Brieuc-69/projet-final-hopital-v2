@@ -21,6 +21,11 @@ class File
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return $this->url;
+    }
+
     public function getUrl(): ?string
     {
         return $this->url;

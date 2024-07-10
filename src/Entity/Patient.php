@@ -33,11 +33,6 @@ class Patient
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
-    /**
-     * @var Collection<int, Gender>
-     */
-    #[ORM\OneToMany(targetEntity: Gender::class, mappedBy: 'patient')]
-    private Collection $gender;
 
     /**
      * @var Collection<int, Appointement>
@@ -45,9 +40,11 @@ class Patient
     #[ORM\OneToMany(targetEntity: Appointement::class, mappedBy: 'patient', orphanRemoval: true)]
     private Collection $appointements;
 
+    #[ORM\ManyToOne(inversedBy: 'patients')]
+    private ?Gender $gender = null;
+
     public function __construct()
     {
-        $this->gender = new ArrayCollection();
         $this->appointements = new ArrayCollection();
     }
 
@@ -131,32 +128,7 @@ class Patient
     /**
      * @return Collection<int, Gender>
      */
-    public function getGender(): Collection
-    {
-        return $this->gender;
-    }
-
-    public function addGender(Gender $gender): static
-    {
-        if (!$this->gender->contains($gender)) {
-            $this->gender->add($gender);
-            $gender->setPatient($this);
-        }
-
-        return $this;
-    }
-
-    public function removeGender(Gender $gender): static
-    {
-        if ($this->gender->removeElement($gender)) {
-            // set the owning side to null (unless already changed)
-            if ($gender->getPatient() === $this) {
-                $gender->setPatient(null);
-            }
-        }
-
-        return $this;
-    }
+  
 
     /**
      * @return Collection<int, Appointement>
@@ -184,6 +156,18 @@ class Patient
                 $appointement->setPatient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getGender(): ?Gender
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?Gender $gender): static
+    {
+        $this->gender = $gender;
 
         return $this;
     }

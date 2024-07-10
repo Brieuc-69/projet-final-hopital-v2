@@ -21,12 +21,19 @@ class Experience
     /**
      * @var Collection<int, Medecin>
      */
-    #[ORM\ManyToMany(targetEntity: Medecin::class, mappedBy: 'noteEtoile')]
+    #[ORM\OneToMany(targetEntity: Medecin::class, mappedBy: 'experience')]
     private Collection $medecins;
+
+ 
 
     public function __construct()
     {
         $this->medecins = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->experience;
     }
 
     public function getId(): ?int
@@ -58,7 +65,7 @@ class Experience
     {
         if (!$this->medecins->contains($medecin)) {
             $this->medecins->add($medecin);
-            $medecin->addNoteEtoile($this);
+            $medecin->setExperience($this);
         }
 
         return $this;
@@ -67,9 +74,14 @@ class Experience
     public function removeMedecin(Medecin $medecin): static
     {
         if ($this->medecins->removeElement($medecin)) {
-            $medecin->removeNoteEtoile($this);
+            // set the owning side to null (unless already changed)
+            if ($medecin->getExperience() === $this) {
+                $medecin->setExperience(null);
+            }
         }
 
         return $this;
     }
+
+
 }
