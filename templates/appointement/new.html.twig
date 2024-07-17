@@ -1,28 +1,41 @@
  {# templates/appointment/new.html.twig #}
+ {% extends 'base.html.twig' %}
+
+{% block title %}CabinetMédical - Rendez-vous{% endblock %}
+
+{% block body %}
 
  <div class="page-section">
     <div class="container">
         <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
-
         {{ form_start(form) }}
         <div class="row mt-5">
             <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                {{ form_row(form.name) }}
+                {{ form_row(form.patient.firstName, {'attr': {'value': patient.firstName} })}}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                {{ form_row(form.patient.lastName, {'attr': {'value': patient.lastName} }) }}
             </div>
             <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                {{ form_row(form.email) }}
+                {{ form_row(form.patient.email, {'attr': {'value': patient.email} }) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.patient.gender) }}
             </div>
             <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                {{ form_row(form.appointmentDate) }}
-            </div>
-            <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                {{ form_row(form.department) }}
+                {{ form_row(form.dateAppointment) }}
             </div>
             <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                {{ form_row(form.phoneNumber) }}
+                {{ form_row(form.patient.adress, {'attr': {'value': patient.adress} }) }}
             </div>
             <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                {{ form_row(form.message) }}
+                {{ form_row(form.patient.tel, {'attr': {'value': patient.tel} }) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.content) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.medecin) }}
             </div>
         </div>
 

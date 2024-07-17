@@ -1,37 +1,48 @@
 <?php
-namespace App\Controller;  
+
+namespace App\Repository;
 
 use App\Entity\Appointement;
-use App\Form\AppointementType;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;  
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
-class AppointementRepository extends AbstractController
+/**
+ * @extends ServiceEntityRepository<Experience>
+ *
+ * @method Experience|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Experience|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Experience[]    findAll()
+ * @method Experience[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class AppointementRepository extends ServiceEntityRepository
 {
-    /**
-     * @Route("/appointement", name="appointement")
-     */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function __construct(ManagerRegistry $registry)
     {
-        $appointement = new Appointement();
-        $form = $this->createForm(AppointementType::class, $appointement);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($appointement);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Votre rendez-vous a été pris avec succès.');
-
-            return $this->redirectToRoute('appointment');
-        }
-
-        return $this->render('appointement/new.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        parent::__construct($registry, Appointement::class);
     }
+
+    //    /**
+    //     * @return Experience[] Returns an array of Experience objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('e')
+    //            ->andWhere('e.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('e.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Experience
+    //    {
+    //        return $this->createQueryBuilder('e')
+    //            ->andWhere('e.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

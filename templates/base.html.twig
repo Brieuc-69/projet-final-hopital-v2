@@ -49,7 +49,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="#"><span class="text-primary">Cabinet</span> Medical</a>
+                <a class="navbar-brand" href="{{path('app_home')}}"><span class="text-primary">Cabinet</span> Medical</a>
 
                 <form action="#">
                     <div class="input-group input-navbar">
@@ -66,9 +66,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupport">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{path('app_home')}}">Acceuil</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{path('app_about_us')}}">A propos de nous</a>
                         </li>
@@ -76,9 +73,13 @@
                             <a class="nav-link" href="{{path('app_medecin_index')}}">Médecins</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+                            <a class="nav-link" href="{{path('app_appointement')}}">Prendre Rendez-vous</a>
                         </li>
+                        
                         {% if app.user %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{path('app_profil')}}">Profil</a>
+                        </li>
                         <li class="nav-item">
                           <a class="btn btn-primary ml-lg-3" href="{{path('app_logout')}}">Déconnexion</a>
                         </li>
