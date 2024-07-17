@@ -17,6 +17,7 @@ class MedecinController extends AbstractController
     #[Route('/', name: 'app_medecin_index', methods: ['GET'])]
     public function index(MedecinRepository $medecinRepository): Response
     {
+        
         return $this->render('medecin/index.html.twig', [
             'medecins' => $medecinRepository->findAll(),
         ]);

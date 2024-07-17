@@ -42,7 +42,7 @@ class Medecin
     /**
      * @var Collection<int, Appointement>
      */
-    #[ORM\OneToMany(targetEntity: Appointement::class, mappedBy: 'medecin')]
+    #[ORM\OneToMany(targetEntity: Appointement::class, mappedBy: 'medecin', cascade: ['remove'])]
     private Collection $appointements;
 
     #[ORM\ManyToOne(inversedBy: 'medecins')]
