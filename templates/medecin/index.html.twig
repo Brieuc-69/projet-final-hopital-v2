@@ -1,10 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Medecin index{% endblock %}
+
+{% block seo %}
+
+    <meta name="description" content="Consultez les profils de nos médecins chez Santé +. Découvrez leurs spécialités, leurs expériences et comment ils peuvent vous aider à améliorer votre santé.">
+    <meta name="keywords" content="médecins, Santé +, profils de médecins, spécialités médicales, consultations médicales, expérience médicale">
+    <meta name="author" content="Santé +">
+  
+   
+{% endblock %}
+
+{% block title %}Medecin{% endblock %}
 
 {% block body %}
+<div class="page-banner overlay-dark bg-image" style="background-image: url({{asset('asset/img/istockphoto-1401846005-612x612.jpg')}});">
+  <div class="banner-section">
+    <div class="container text-center wow fadeInUp">
+      <nav aria-label="Breadcrumb">
+      
+      </nav>
+      <h1 class="font-weight-normal">Les Médecins de chez Santé + </h1>
+    </div> <!-- .container -->
+  </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
 
-<h1 class="font-weight-normal">Les Medecins</h1>
+<h1 class="medecin-titre">Les Medecins</h1>
    
   <div class="page-section bg-light">
     <div class="">

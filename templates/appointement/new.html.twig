@@ -1,13 +1,32 @@
  {# templates/appointment/new.html.twig #}
  {% extends 'base.html.twig' %}
 
+ {% block seo %}
+
+ <meta name="description" content="Planifiez facilement vos rendez-vous médicaux avec Santé +. Choisissez un créneau horaire, consultez nos médecins et obtenez une confirmation rapide de votre rendez-vous.">
+ <meta name="keywords" content="rendez-vous, Santé +, prise de rendez-vous, consultations médicales, planifier un rendez-vous, horaires de consultation">
+ <meta name="author" content="Santé +">
+ 
+{% endblock %}
+
 {% block title %}CabinetMédical - Rendez-vous{% endblock %}
 
 {% block body %}
 
+<div class="page-banner overlay-dark bg-image" style="background-image: url({{asset('asset/img/istockphoto-1401846005-612x612.jpg')}});">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+        
+        </nav>
+        <h1 class="font-weight-normal">Prise de rendez-vous </h1>
+      </div> 
+    </div> 
+  </div>
+
  <div class="page-section">
     <div class="container">
-        <h1 class="text-center wow fadeInUp">Prendre rendez-vous</h1>
+        {% if patient %}
         {{ form_start(form) }}
         <div class="row mt-5">
             <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
@@ -19,13 +38,13 @@
             <div class="col-12 col-sm-6 py-2 wow fadeInRight">
                 {{ form_row(form.patient.email, {'attr': {'value': patient.email} }) }}
             </div>
-            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <div class="col-12 col-sm-6 py-2 wow fadeInUp" data-wow-delay="300ms">
                 {{ form_row(form.patient.gender) }}
             </div>
             <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
                 {{ form_row(form.dateAppointment) }}
             </div>
-            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <div class="col-12 col-sm-6 py-2 wow fadeInUp" data-wow-delay="300ms">
                 {{ form_row(form.patient.adress, {'attr': {'value': patient.adress} }) }}
             </div>
             <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
@@ -41,6 +60,45 @@
 
         <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Envoyer</button>
         {{ form_end(form) }}
+        {% else %}
+        {{ form_start(form) }}
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                {{ form_row(form.patient.firstName)}}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                {{ form_row(form.patient.lastName) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                {{ form_row(form.patient.email) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.patient.gender) }}
+            </div>
+            <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                {{ form_row(form.dateAppointment) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.patient.adress) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.patient.tel) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.content) }}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                {{ form_row(form.medecin) }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Envoyer</button>
+        {{ form_end(form) }}
+
+
+        {% endif %}
     </div>
 </div>
 {% endblock %}
+
+

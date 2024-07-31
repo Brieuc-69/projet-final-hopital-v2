@@ -26,11 +26,11 @@ class PatientController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $patient = new Patient();
-        $form = $this->createForm(PatientType::class, $patient);
-        $form->handleRequest($request);
+        $form = $this->createForm(PatientType::class, $patient);// ont créer le formulaire //
+        $form->handleRequest($request);  // Traite la requête du formulaire
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($patient);
+            $entityManager->persist($patient); // Enregistre les modifications dans la base de données
             $entityManager->flush();
 
             return $this->redirectToRoute('app_patient_index', [], Response::HTTP_SEE_OTHER);

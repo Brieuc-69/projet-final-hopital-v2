@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 
+
+{% block seo %}
+
+    <meta name="description" content="Accédez à votre profil personnel chez Santé +. Gérez vos informations, vos rendez-vous et vos préférences de santé en toute simplicité.">
+    <meta name="keywords" content="profil, Santé +, gestion de profil, rendez-vous, informations personnelles, espace personnel, santé en ligne">
+    <meta name="author" content="Santé +">
+   
+{% endblock %}
+
 {% block title %}Profil{% endblock %}
 
 {% block body %}
@@ -40,6 +49,17 @@
     }
     
 </style>
+
+<div class="page-banner overlay-dark bg-image" style="background-image: url({{asset('asset/img/istockphoto-1401846005-612x612.jpg')}});">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+        
+        </nav>
+        <h1 class="font-weight-normal">Votre profil !</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div> <!-- .page-banner -->
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-4">

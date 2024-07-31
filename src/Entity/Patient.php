@@ -48,6 +48,11 @@ class Patient
         $this->appointements = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

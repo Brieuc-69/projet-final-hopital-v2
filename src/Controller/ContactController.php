@@ -19,16 +19,26 @@ class ContactController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $appointement = new Appointement();
+
+        // Création et gestion du formulaire pour l'appointement
+
         $form = $this->createForm(AppointementType::class, $appointement);
         $form->handleRequest($request);
 
+         // Vérification si le formulaire est soumis et valide
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Persister et enregistrer le rendez-vous dans la base de données
+
             $entityManager->persist($appointement);
             $entityManager->flush();
 
         // Redirection vers un itinéraire affichant une confirmation ou une liste de rendez-vous
             return $this->redirectToRoute('app_appointement');
         }
+
+        // Rendre la vue du formulaire de contact
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),

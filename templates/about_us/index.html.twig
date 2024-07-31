@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AboutUsController!{% endblock %}
+{% block seo %}
+
+    <meta name="description" content="Découvrez l'équipe de Santé +, notre mission et nos valeurs. Apprenez-en davantage sur notre cabinet médical et notre engagement envers la santé et le bien-être.">
+    <meta name="keywords" content="à propos, équipe, Santé +, mission, valeurs, cabinet médical, équipe médicale, engagement en santé">
+    <meta name="author" content="Santé +">
+  
+{% endblock %}
+
+
+{% block title %}A Propos de nous{% endblock %}
 
 {% block body %}
 
@@ -16,30 +25,14 @@
   </div> <!-- .page-banner -->
 
   <div class="page-section bg-light">
-    <div class="container">
+    <div class="container-card">
       <div class="row">
         <div class="col-md-4 py-3 wow zoomIn">
-          <div class="card-service">
-            <div class="circle-shape bg-secondary text-white">
-              <span class="mai-chatbubbles-outline"></span>
-            </div>
+          <div class="card-service ">
+              <span class="">
+                <img src="{{ asset('uploads/medecins/message.png') }}" style="width: 120px; height: 80px; align-items: center" alt="">
+              </span>
             <p><span>Discuter</span> avec les médecins</p>
-          </div>
-        </div>
-        <div class="col-md-4 py-3 wow zoomIn">
-          <div class="card-service">
-            <div class="circle-shape bg-primary text-white">
-              <span class="mai-shield-checkmark"></span>
-            </div>
-            <p><span>Préserver</span> une protection de vie</p>
-          </div>
-        </div>
-        <div class="col-md-4 py-3 wow zoomIn">
-          <div class="card-service">
-            <div class="circle-shape bg-accent text-white">
-              <span class="mai-basket"></span>
-            </div>
-            <p><span>Acheter </span> vos médicaments</p>
           </div>
         </div>
       </div>
@@ -47,7 +40,7 @@
   </div>
 
   <div class="page-section">
-    <div class="container">
+    <div class="container-card">
       <div class="row justify-content-center">
         <div class="col-lg-8 wow fadeInUp">
           <h1 class="text-center mb-3">Bienvenue dans notre Cabinet Médicale</h1>
@@ -91,12 +84,12 @@
                   </div>
                 </div>
                 <div class="body">
-                  <p class="text-xl mb-0">Dr. Gauthez Vincent</p>
+                  <p class="text-xl mb-0">Dr. Young Chen </p>
                   <span class="text-sm text-grey">Dentiste</span>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-4 wow zoomIn">
+            <div class=" col-12 col-md-6 col-lg-4  wow zoomIn">
               <div class="card-doctor">
                 <div class="header">
                   <img src={{asset('asset/img/doctors/Gérald_KIERZEK_(Crédit_Ibo).jpg')}} alt="">
@@ -106,7 +99,7 @@
                   </div>
                 </div>
                 <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+                  <p class="text-xl mb-0">Dr. Gauthez vincent</p>
                   <span class="text-sm text-grey">Médecin Generaliste</span>
                 </div>
               </div>

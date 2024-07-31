@@ -19,6 +19,9 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         // return parent::index();
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
@@ -49,7 +52,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Medecin', 'fa-solid fa-user-doctor', Medecin::class);
         yield MenuItem::linkToCrud('Appointment', 'fa-solid fa-calendar-check', Appointement::class);
-        yield MenuItem::linkToCrud('Patient', 'fa-solid fa-person', Patient::class);
         yield MenuItem::linkToCrud('Expérience', 'fa-solid fa-person', Experience::class);
         yield MenuItem::linkToCrud('File', 'fa-solid fa-file', File::class);
         yield MenuItem::linkToCrud('Genre', 'fa-solid fa-file', Gender::class);

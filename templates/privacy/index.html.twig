@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Politique de Confidentialité{% endblock %}
+
+{% block body %}
+    <div class="privacy-policy-container">
+        <h1>Politique de Confidentialité</h1>
+        <p>Nous nous engageons à protéger vos données personnelles. Voici comment nous traitons vos informations :</p>
+        <ul>
+            <li><strong>Collecte des données :</strong> Nous collectons des informations telles que votre nom, adresse e-mail, et autres données nécessaires pour créer votre compte.</li>
+            <li><strong>Utilisation des données :</strong> Vos données sont utilisées uniquement pour gérer votre compte et améliorer nos services.</li>
+            <li><strong>Partage des données :</strong> Nous ne partageons pas vos données avec des tiers sans votre consentement, sauf si la loi l'exige.</li>
+            <li><strong>Conservation des données :</strong> Vos données sont conservées aussi longtemps que nécessaire pour fournir nos services ou conformément aux exigences légales.</li>
+            <li><strong>Vos droits :</strong> Vous avez le droit de demander l'accès, la rectification ou la suppression de vos données personnelles. Pour exercer ces droits, veuillez nous contacter à l'adresse suivante : [votre adresse e-mail de contact].</li>
+        </ul>
+        <p>Pour plus d'informations, veuillez consulter notre <a href="{{ path('privacy_policy') }}">Politique de confidentialité</a>.</p>
+    </div>
+{% endblock %}

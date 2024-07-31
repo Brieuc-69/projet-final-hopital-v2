@@ -32,6 +32,8 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
+
+        //Creation du formulaire//
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -43,17 +45,21 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+                //attribue uniquement le rôle utilisateur par défaut
+            
+            
             $user->setRoles(['ROLE_USER']);
             $user->isVerified(false);
 
             $entityManager->persist($user);
             $entityManager->flush();
 
+
+
             // Generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('CabinetMedical@gmail.com', 'Inscription@CabinetMedical.com'))
+                    ->from(new Address('CabinetMedical@gmail.com', 'Inscription@SantéPlus.com'))
                     ->to($user->getEmail())
                     ->subject('Confirmez votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')

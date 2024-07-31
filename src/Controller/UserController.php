@@ -57,6 +57,7 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
+        // Vérifie si le formulaire a été soumis et est valide
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
@@ -72,6 +73,8 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
+
+          // Vérifie si le token CSRF est valide pour sécuriser la suppression
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();

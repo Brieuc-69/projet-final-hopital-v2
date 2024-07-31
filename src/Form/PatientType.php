@@ -8,6 +8,7 @@ use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -35,7 +36,12 @@ class PatientType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('tel')
+            ->add('tel', NumberType::class, [
+                'label' => 'Téléphone',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+            ])
             ->add('adress',  TextType::class, [
                 'label' => 'Adresse',
                 'attr' => [
@@ -43,6 +49,10 @@ class PatientType extends AbstractType
                 ]
             ])
             ->add('gender', EntityType::class, [
+                'label' => 'Genre',
+                'attr' => [
+                    'class' => 'form-select'
+                ],
                 'class' => Gender::class,
                 'choice_label' => 'name'
             ])

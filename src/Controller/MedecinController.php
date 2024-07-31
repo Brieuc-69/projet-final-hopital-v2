@@ -32,7 +32,9 @@ class MedecinController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($medecin);
-            
+
+          
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_medecin_index', [], Response::HTTP_SEE_OTHER);

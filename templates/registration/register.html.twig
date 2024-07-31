@@ -1,4 +1,3 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Se connecter{% endblock %}
@@ -8,7 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
     <div class="form-container">
-        <h2>S'inscrirer</h2>
+        <h2>Se créer un compte </h2>
         {{ form_start(registrationForm) }}
             <div class="form-group">
                 {{ form_label(registrationForm.email) }}
@@ -21,11 +20,12 @@
                 {{ form_errors(registrationForm.plainPassword) }}
             </div>
             <div class="form-check">
-                {{ form_widget(registrationForm.agreeTerms) }}
+                {{ form_widget(registrationForm.agreeTerms  ) }}
                 {{ form_label(registrationForm.agreeTerms) }}
+                <a href="{{ path('privacy_policy') }}" target="_blank">Politique et confidentialité</a>
                 {{ form_errors(registrationForm.agreeTerms) }}
             </div>
-            <button type="submit" class="submit-btn">Se connecter</button>
+            <button type="submit" class="submit-btn">Créer son compte </button>
         {{ form_end(registrationForm) }}
     </div>
 {% endblock %}

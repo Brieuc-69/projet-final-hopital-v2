@@ -1,24 +1,33 @@
 {% extends 'base.html.twig' %}
 
+{% block seo %}
+
+    <meta name="description" content="Connectez-vous à votre compte sur Santé + pour accéder à vos informations personnelles, vos rendez-vous, et plus encore. Assurez-vous d'être à jour avec vos consultations et votre santé.">
+    <meta name="keywords" content="connexion, login, Santé +, se connecter, accès compte, informations personnelles, rendez-vous">
+    <meta name="author" content="Santé +">
+    
+{% endblock %}
+
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
 <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="connexion-titre">
       <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-        Sign in to your account
+        Connectez vous à votre compte 
       </h2>
       <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-        Or
-        <a href="{{path('app_register')}}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-          create a new account
+        ou 
+        <a href="{{ path('app_register') }}" class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+          créer un nouveau compte 
         </a>
       </p>
     </div>
-  
+  </div>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-        <form id="login-form" role="form" method="post" accept-char="UTF-8" autocomplete="off" data-parsley-validate>
+      <div class="form-login">
+        <form id="login-form" role="form" method="post" accept-charset="UTF-8" autocomplete="off" data-parsley-validate>
 
           {% if error %}
               <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -33,24 +42,22 @@
               <input type="hidden" name="_token" value="">
 
               <div class="input-field">
+                  <label for="inputEmail" class="form-label">Email</label>
                   <input type="email" name="email" id="inputEmail" value=""
                          required
                          autofocus
+                         class="form-input"
                          data-parsley-trigger="change"
                          data-parsley-error-message="A valid email address is required.">
-                  <label for="inputEmail">Email</label>
-                  <span class="help-block">Type your email address.</span>
               </div>
               <div class="input-field">
+                  <label for="inputPassword" class="form-label">Mot de passe</label>
                   <input type="password" name="password" id="inputPassword"
                          required
+                         class="form-input"
                          data-parsley-trigger="change"
                          data-parsley-error-message="The password must be at least 6 characters.">
-                  <label for="inputPassword">Password</label>
                   <i class="fa fa-eye show-password"></i>
-                  <span class="help-block">Mot de passe</span>
-
-
               </div>
 
               <input type="hidden" name="_csrf_token"
@@ -59,7 +66,7 @@
 
               <div class="checkbox">
                   <input type="checkbox" id="keep-logged" name="remember" value="1" />
-                  <label for="keep-logged">Garder ma session ouverte</label>
+                  <label for="keep-logged" class="form-label">Garder ma session ouverte</label>
               </div>
               <button type="submit" class="btn btn-lg gradient secondary btn-block waves-effect waves-light mt-20 mb-20">Se connecter</button>
 
@@ -68,9 +75,6 @@
               </div>
           </form>
       </div>
-  </div>
-      </div>
     </div>
   </div>
-  
 {% endblock %}

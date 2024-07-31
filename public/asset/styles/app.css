@@ -1245,6 +1245,7 @@
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center !important;
     padding: 20px;
     margin: 0 auto;
     width: 100%;
@@ -1485,10 +1486,10 @@
   
   .page-footer {
     position: relative;
+    overflow: hidden;
     display: block;
     padding-top: 80px;
     padding-bottom: 16px;
-    background-color: #000000;
     color: #fff;
   }
   
@@ -1497,9 +1498,7 @@
     margin-bottom: 16px;
   }
   
-  .page-footer hr {
-    border-color: #fa0000;
-  }
+
   
   .footer-menu {
     position: relative;
@@ -2685,28 +2684,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 14px;
 }
 
-.hero-section,
-.banner-section {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  color: #ffffff;
-  z-index: 10;
-}
 
-.hero-section .subhead {
-  text-transform: uppercase;
-  letter-spacing: 4px;
-}
-
-.hero-section h1 {
-  margin-bottom: 32px;
-}
 
 .input-navbar {
   width: auto;
@@ -3191,10 +3169,11 @@ input:invalid, textarea:invalid, select:invalid {
 .form-container {
   max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .form-container h2 {
@@ -3215,5 +3194,131 @@ input:invalid, textarea:invalid, select:invalid {
 
 .submit-btn:hover {
   background-color: #0056b3;
+}
+
+
+
+/* styles.css */
+
+
+h2 {
+  color: #004080; /* Darker blue for headings */
+}
+
+a {
+  color: #0066cc;
+}
+
+a:hover {
+  color: #005bb5;
+}
+
+.blue-frame {
+  border: 2px solid #0066cc; /* Blue frame */
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #ffffff; /* White background */
+}
+
+.form-input {
+  display: block;
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1.25rem; /* Larger font size */
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #0066cc;
+  outline: none;
+}
+
+.form-label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #004080;
+}
+
+/* style page RGPD  */
+.privacy-policy-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy-container h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.privacy-policy-container p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.privacy-policy-container ul {
+    list-style-type: disc;
+    margin: 20px 0 20px 40px;
+    padding: 0;
+}
+
+.privacy-policy-container ul li {
+    margin-bottom: 15px;
+}
+
+.privacy-policy-container ul li strong {
+    color: #333;
+}
+
+.privacy-policy-container a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.privacy-policy-container a:hover {
+    text-decoration: underline;
+}
+
+.medecin-titre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.text-center mb-3{
+  padding: 60px;
+}
+
+.connexion-titre {
+  padding: 20px;
+}
+
+.container-card .card-service {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-login {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 2px solid #0066cc; /* Bordure bleue */
+  border-radius: 10px; /* Bordure arrondie */
+  background-color: #ffffff; /* Fond blanc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
